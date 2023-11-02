@@ -3,9 +3,13 @@ import JobItem from './JobItem';
 import './JobItemList.css';
 import JobFormModal from './jobFormModal';
 
-const JobItemList = ({ jobItems, onEdit, onDelete }) => {
+const JobItemList = ({ jobItems, onEdit, onDelete, updatedJobItems }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedItem, setEditedItem] = useState(null);
+
+  // const updateJobItems = (newJobItems) => {
+  //   setJobItems(newJobItems);
+  // }
 
   const handleEdit = (item) => {
     setIsEditing(true);

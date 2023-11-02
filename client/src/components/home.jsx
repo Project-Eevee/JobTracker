@@ -111,12 +111,18 @@ const Home = () => {
             </div>
           </div>
           <div>
-        <JobItemList jobItems={jobItems} onEdit={handleEdit} onDelete={handleDelete} />
+        <JobItemList
+        jobItems={jobItems}
+        updatedJobItems = {setJobItems} 
+        onEdit={handleEdit}
+        onDelete={handleDelete} />
       </div>
         </div>
       </div>
 
       <JobFormModal
+        jobItems={jobItems}
+        updatedJobItems = {setJobItems}
         isOpen={isFormVisible}
         onClose={handleToggleForm}
         onSubmit={handleFormSubmit}
