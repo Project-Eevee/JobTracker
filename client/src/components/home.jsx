@@ -1,10 +1,10 @@
-// Home.js
+
 import React, { useState } from 'react';
 import './home.css';
 import Nav from './nav';
 import JobFormModal from './jobFormModal';
-import JobItemList from './JobItemList'; // Import the JobItemList component
-import './JobItem.css'; // Import the CSS file for JobItem component
+import JobItemList from './JobItemList'; 
+import './JobItem.css';
 
 const Home = () => {
   const [selectedOption, setSelectedOption] = useState('dropdownhere');
@@ -14,10 +14,10 @@ const Home = () => {
     jobTitle: '',
     jobDescription: ''
   });
-  const [jobItems, setJobItems] = useState([]); // State variable to hold submitted job data
+  const [jobItems, setJobItems] = useState([]); 
 
   const handleToggleForm = () => {
-    // Reset the form data when the modal is closed
+    // reset the form data when the modal is closed
     if (isFormVisible) {
       setFormData({
         jobLink: '',
@@ -31,23 +31,36 @@ const Home = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    // Add the submitted job data to the jobItems state
+    // add the submitted job data to the jobItems state
     const newJobItem = { ...formData };
     setJobItems([...jobItems, newJobItem]);
 
-    // Reset the form data to its initial state (empty input fields)
+    // reset the form data to its initial state (empty input fields)
     setFormData({
       jobLink: '',
       jobTitle: '',
       jobDescription: ''
     });
-    // Close the form modal after submission
+
     handleToggleForm();
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleEdit = (index) => {
+    console.log('Edit clicked for job item at index:', index);
+  };
+
+  const handleDelete = (index) => {
+    // Implement delete functionality here
+    // You can update the stats and remove the job item from the list
+    console.log('Delete clicked for job item at index:', index);
+    const updatedJobItems = [...jobItems];
+    updatedJobItems.splice(index, 1);
+    setJobItems(updatedJobItems);
   };
 
   return (
@@ -58,7 +71,26 @@ const Home = () => {
 
       <div className='content-container'>
         <div className='left-container'>
-          <div className='left'>div1</div>
+        <div className='left'>
+        <div className='search-box'>
+        <input type='text' placeholder='Search Job' className='search-input' />
+        <button className='search-button'>Search</button>
+      </div>
+      <div className='stats-box'>
+        <h2>Stats</h2>
+        <p>This Month</p>
+        <p>0</p>
+      </div>
+        <div className='status-box'>
+          <h2>Status</h2>
+          <button className='status-button'>Applied</button>
+          <button className='status-button'>Not Applied</button>
+          <button className='status-button'>Closed</button>
+          <button className='status-button'>Assessment</button>
+          <button className='status-button'>Rejected</button>
+          <button className='status-button'>Interview</button>
+        </div>
+      </div>
         </div>
 
         <div className='right-container'>
@@ -78,9 +110,9 @@ const Home = () => {
               </button>
             </div>
           </div>
-
-          {/* Include JobItemList component under the toolbar */}
-          <JobItemList jobItems={jobItems} />
+          <div>
+        <JobItemList jobItems={jobItems} onEdit={handleEdit} onDelete={handleDelete} />
+      </div>
         </div>
       </div>
 

@@ -2,10 +2,10 @@
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 62%;
+  transform: translateX(-50%);
+  width: 700px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
 }
@@ -16,7 +16,60 @@
 
 .modal-content {
   background: white;
-  padding: 20px;
+  padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 700px;
+  box-sizing: border-box;
+  margin-top: 48px; 
+}
+
+.form-section {
+  margin-bottom: 20px; 
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.input-box {
+  margin-bottom: 16px; 
+}
+
+input[type='text'],
+textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type='submit'] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type='submit']:hover {
+  background-color: #45a049;
+}
+
+button[type='submit'],
+button {
+  margin-right: 10px; 
+}
+
+.close-button {
+  background-color: #f44336;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
 }
