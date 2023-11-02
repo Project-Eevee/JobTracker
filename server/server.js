@@ -22,8 +22,6 @@ const __dirname = dirname(__filename);
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 app.use(express.static(resolve(__dirname, '../client')));
 
-
-
 app.post('/auth/google/callback', async (req, res) => {
   try {
     const { token } = req.body;
@@ -31,14 +29,11 @@ app.post('/auth/google/callback', async (req, res) => {
       idToken: token,
       audience: process.env.GOOGLE_CLIENT_ID,
     });
-    
+
     const payload = ticket.getPayload();
-    const userid = payload['sub'];
-    console.log(payload);
+
     if (payload) {
-      // Your logic to store the googleUser information in the database
-      const user = await handleGoogleLogin(payload);
-      res.json({ message: 'User authenticated successfully', user });
+      await handleGoogleLogin(payload, res);
     } else {
       res.status(401).json({ message: 'Invalid credentials' });
     }

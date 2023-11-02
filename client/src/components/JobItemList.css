@@ -1,19 +1,17 @@
-
 .job-items-container {
   padding: 20px;
   margin-top: 10px;
   width: 888px;
-  height: 600px; 
-  overflow-y: auto; 
-  border: 1px solid #ccc; 
-  margin-top: 10px; 
+  height: 600px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  margin-top: 10px;
   line-height: 20px;
   border-radius: 8px;
-  background-color: #2D3748;
+  background-color: #2d3748;
 }
 
 .job-item {
   padding: 10px;
-  border-bottom: 1px solid #ddd; 
+  border-bottom: 1px solid #ddd;
 }
-
