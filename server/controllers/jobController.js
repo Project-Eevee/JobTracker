@@ -1,4 +1,4 @@
-import {query} from '../models/jobTrackerModels.js'; 
+import { query } from '../models/jobTrackerModels.js';
 const jobController = {};
 
 // jobController.getJobs = async (req, res, next) => {
@@ -6,18 +6,18 @@ const jobController = {};
 //         let userId = req.params.userId;
 //         let conditions = `WHERE j.user = $1`; // Using parameterized query
 //         let values = [userId]; // Parameters array for query values
-    
+
 //         if (req.body.title) {
 //           conditions += ` AND j.title ILIKE $2`; // Case-insensitive search using ILIKE
 //           values.push(`%${req.body.title}%`);
 //         }
-    
+
 //         // Sorting
 //         let orderBy = "";
 //         if (req.body.createdAt) {
 //           orderBy = `ORDER BY j.createdAt ${req.body.createdAt}`; // Assuming req.body.createdAt contains ASC or DESC
 //         }
-    
+
 //         // Fetch jobs with their category and notes
 //         let sql = `
 //           SELECT j.*, c.*, n.*
@@ -27,9 +27,9 @@ const jobController = {};
 //           ${conditions}
 //           ${orderBy}, n.createdAt DESC;  // Order notes by createdAt in descending order after ordering jobs
 //         `;
-    
+
 //         const { rows: jobs } = await query(sql, values); // This assumes you're using node-postgres or a similar library
-    
+
 //         if (jobs && jobs.length) {
 //           res.json(jobs);
 //         } else {
@@ -48,10 +48,8 @@ const jobController = {};
 
 //TODO: fetch job controller here?
 
-
-
 jobController.addJob = (req, res, next) => {
-  const tableName = req.body.tableName
+  const tableName = req.body.tableName;
   const queryString = `INSERT INTO ${tableName} (
     name, 
     role, 
@@ -70,19 +68,19 @@ jobController.addJob = (req, res, next) => {
         )
         RETURNING *;`;
 
-    query(queryString)
+  query(queryString)
     .then((data) => {
-        res.locals.details = data;
-        return next();
+      res.locals.details = data;
+      return next();
     })
     .catch((error) => {
-        console.error("Actual db error:", error);
-        return next({
+      console.error('Actual db error:', error);
+      return next({
         log: 'Express error handler caught in jobController.addJob',
         status: 500,
         message: { err: 'An error occured' },
-        });
+      });
     });
-}
+};
 
 export default jobController;
