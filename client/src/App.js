@@ -5,15 +5,14 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 
 import Login from './components/login.jsx';
+import Home from './components/home.jsx';
 
 const App = () => {
   return (
     <Provider store={store}>
       <Routes>
-        <Route path='/' element={<Login />} />
-        {/* <Route path='/signup' element={<Signup />} />
-      <Route path='/mainpage' element={<MainPage />} />
-      <Route path='/userpage' element={<UserPersonalItenerary />} /> */}
+        <Route path='/' element={<Home />} />
+        {/* <Route path='/home' element={<Home />} /> */}
       </Routes>
     </Provider>
   );
