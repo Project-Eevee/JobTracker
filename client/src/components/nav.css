@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2D3748;
-  color: white;
+  background-color: #121212;
+  color: rgb(249 250 251);
   padding: 1rem;
 
 }
@@ -14,16 +14,28 @@
 }
 
 .metrics-button{
-  padding: 8px 16px; 
-  border: none;
+  padding: 8px 16px;
+  background-color: #1f1f1f;
+  color:  #ff69b4;
+  border: 1px solid #ff69b4;
   border-radius: 4px;
   cursor: pointer;
+}
+.metrics-button:hover{
+  background-color: #ff69b4;
+  color: white;
 }
 
 .logout-button{
-  padding: 8px 16px; 
-  border: none;
+  padding: 8px 16px;
+  background-color: #1f1f1f;
+  color:  #ff69b4;
+  border: 1px solid #ff69b4;
   border-radius: 4px;
   cursor: pointer;
-}
 
+}
+.logout-button:hover{
+  background-color: #ff69b4;
+  color: white;
+}

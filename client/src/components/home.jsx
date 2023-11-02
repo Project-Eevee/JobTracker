@@ -10,11 +10,17 @@ const Home = () => {
   const [selectedOption, setSelectedOption] = useState('dropdownhere');
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [formData, setFormData] = useState({
-    jobLink: '',
-    jobTitle: '',
-    jobDescription: ''
+    companyName: '',
+    nameOfRole: '',
+    dateApplied: '',
+    salary: '',
+    interestLevel: '',
+    contactEmail: '',
+    jobStatus: '',
   });
   const [jobItems, setJobItems] = useState([]); 
+
+  
 
   const handleToggleForm = () => {
     // reset the form data when the modal is closed
@@ -55,8 +61,8 @@ const Home = () => {
   };
 
   const handleDelete = (index) => {
-    // Implement delete functionality here
-    // You can update the stats and remove the job item from the list
+    // delete functionality here
+    // update the stats and remove the job item from the list
     console.log('Delete clicked for job item at index:', index);
     const updatedJobItems = [...jobItems];
     updatedJobItems.splice(index, 1);
