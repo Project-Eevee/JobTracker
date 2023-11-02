@@ -5,7 +5,7 @@ import cors from 'cors';
 import { OAuth2Client } from 'google-auth-library';
 import 'dotenv/config';
 import { handleGoogleLogin } from './controllers/signin.js';
-
+import apiRouter from './routes/api.js'
 const app = express();
 const PORT = 3000;
 const corsOptions = {
@@ -21,6 +21,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 app.use(express.static(resolve(__dirname, '../client')));
+
+app.use('/api', apiRouter);
+
 
 app.post('/auth/google/callback', async (req, res) => {
   try {
