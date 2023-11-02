@@ -3,7 +3,7 @@ import JobItem from './JobItem';
 import './JobItemList.css';
 import JobFormModal from './jobFormModal';
 
-const JobItemList = ({ jobItems, onEdit, onDelete, updatedJobItems }) => {
+const JobItemList = ({ jobItems, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedItem, setEditedItem] = useState(null);
 

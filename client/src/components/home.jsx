@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './home.css';
 import Nav from './nav';
 import JobFormModal from './jobFormModal';
@@ -15,6 +15,19 @@ const Home = () => {
     jobDescription: ''
   });
   const [jobItems, setJobItems] = useState([]); 
+
+  useEffect(() => {
+    // Fetch job data from your API endpoint when the component mounts
+    fetch('/api/getJobs') // Replace with your actual backend endpoint
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the jobItems state with the received data
+        setJobItems(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching job data:', error);
+      });
+  }, []);
 
   const handleToggleForm = () => {
     // reset the form data when the modal is closed
