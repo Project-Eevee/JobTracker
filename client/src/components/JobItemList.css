@@ -1,17 +1,19 @@
-/* JobItemList.css */
+
 .job-items-container {
-  width: 100%; /* Set the width to 100% */
-  max-height: 300px; /* Set the maximum height; adjust as needed */
-  overflow-y: auto; /* Enable vertical scroll when content exceeds the maximum height */
-  border: 1px solid #ccc; /* Optional: Add a border for visualization */
-  margin-top: 10px; /* Optional: Add margin to separate it from the toolbar */
+  padding: 20px;
+  margin-top: 10px;
+  width: 888px;
+  height: 600px; 
+  overflow-y: auto; 
+  border: 1px solid #ccc; 
+  margin-top: 10px; 
+  line-height: 20px;
+  border-radius: 8px;
+  background-color: #2D3748;
 }
 
 .job-item {
   padding: 10px;
-  border-bottom: 1px solid #ddd; /* Optional: Add border between individual items */
+  border-bottom: 1px solid #ddd; 
 }
 
-.job-item:last-child {
-  border-bottom: none; /* Remove border from the last item */
-}
