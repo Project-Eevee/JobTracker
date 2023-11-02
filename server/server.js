@@ -2,9 +2,9 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
 import cors from 'cors';
-
+import apiRouter from './routes/api.js'
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -14,6 +14,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.use(express.static(resolve(__dirname, '../client')));
+
+app.use('/api', apiRouter);
 
 // error handler
 app.use((req, res) => res.status(404).send('This is not the page you are looking for'));
