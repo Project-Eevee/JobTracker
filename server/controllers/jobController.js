@@ -49,8 +49,9 @@ const jobController = {};
 //TODO: fetch job controller here?
 
 jobController.addJob = (req, res, next) => {
-  const tableName = req.body.tableName;
-  const queryString = `INSERT INTO ${tableName} (
+  console.log('this is the request body', req.body)
+  const table = req.body.jobStatus;
+  const queryString = `INSERT INTO ${table} (
     name, 
     role, 
     date_applied, 
@@ -59,12 +60,12 @@ jobController.addJob = (req, res, next) => {
     email
     )
     VALUES (
-        '${req.body.name}',
-        '${req.body.role}',
-        '${req.body.date_applied}',
+        '${req.body.companyName}',
+        '${req.body.nameOfRole}',
+        '${req.body.dateApplied}',
         '${req.body.salary}',
-        '${req.body.interest_level}',
-        '${req.body.email}'
+        '${req.body.interestLevel}',
+        '${req.body.contactEmail}'
         )
         RETURNING *;`;
 
