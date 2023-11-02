@@ -28,7 +28,10 @@ html{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
-
+.title {
+  font-family: 'Nanum Myeongjo', sans-serif;
+  /* Add other styles like font-size, font-weight, etc. if needed */
+}
 .toolbar{
   display: flex;
   align-items: center; 
