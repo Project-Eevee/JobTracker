@@ -49,6 +49,7 @@ const devServer = {
   proxy: {
     '/': 'http://localhost:3000',
     '/home': 'http://localhost:3000',
+    '/job' : 'http://localhost:3000'
   },
 };
 
