@@ -2,7 +2,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
 import cors from 'cors';
-import apiRouter from './routes/api.js'
+import passport from 'passport';import apiRouter from './routes/api.js'
 const app = express();
 const PORT = 8080;
 
@@ -15,7 +15,15 @@ const __dirname = dirname(__filename);
 
 app.use(express.static(resolve(__dirname, '../client')));
 
-app.use('/api', apiRouter);
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
+  (req, res) => {
+    res.redirect('/home');
+  }
+);
 
 // error handler
 app.use((req, res) => res.status(404).send('This is not the page you are looking for'));
