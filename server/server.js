@@ -5,7 +5,7 @@ import cors from 'cors';
 import { OAuth2Client } from 'google-auth-library';
 import 'dotenv/config';
 import { handleGoogleLogin } from './controllers/signin.js';
-import apiRouter from './routes/api.js'
+import apiRouter from './routes/api.js';
 const app = express();
 const PORT = 3000;
 const corsOptions = {
@@ -24,7 +24,6 @@ app.use(express.static(resolve(__dirname, '../client')));
 
 app.use('/api', apiRouter);
 
-
 app.post('/auth/google/callback', async (req, res) => {
   try {
     const { token } = req.body;
@@ -34,11 +33,9 @@ app.post('/auth/google/callback', async (req, res) => {
     });
 
     const payload = ticket.getPayload();
-    const userid = payload['sub'];
 
     if (payload) {
-      const user = await handleGoogleLogin(payload);
-      res.json({ message: 'User authenticated successfully', user });
+      await handleGoogleLogin(payload, res);
     } else {
       res.status(401).json({ message: 'Invalid credentials' });
     }
@@ -46,7 +43,6 @@ app.post('/auth/google/callback', async (req, res) => {
     res.status(500).json({ message: 'Error authenticating user', error: error.toString() });
   }
 });
-
 // error handler
 app.use((req, res) => res.status(404).send('This is not the page you are looking for'));
 

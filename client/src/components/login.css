@@ -1,0 +1,74 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #ff69b4;
+}
+
+.splash-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+}
+
+.auth-container {
+  width: 20%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.auth-form {
+  background: #1f1f1f;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.auth-button,
+.google-login-button {
+  cursor: pointer;
+}
+
+.info-container {
+  width: 20%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.info-container h1 {
+  text-align: center;
+  font-size: 3rem;
+  /* margin-top: -7em; */
+}
+
+.info-container p {
+  text-align: center;
+  margin-top: 0;
+}
+
+.info-container ul li {
+  text-align: center; /* Center-aligns the content */
+  display: block;
+}
+
+.info-container ul li::before {
+  content: '✔️';
+  margin-right: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .splash-container {
+    flex-direction: column;
+  }
+  .auth-container,
+  .info-container {
+    width: 20%;
+  }
+}
