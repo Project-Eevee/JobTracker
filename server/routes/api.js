@@ -32,4 +32,7 @@ router.post('/signup', signup, (req, res) => {
     });
   }
 });
+router.get('/getJobs', jobController.getAllJobs, (req, res) => {
+  res.status(200).json(res.locals.allJobs);
+});
 export default router;

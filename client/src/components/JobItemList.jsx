@@ -7,6 +7,10 @@ const JobItemList = ({ jobItems, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedItem, setEditedItem] = useState(null);
 
+  // const updateJobItems = (newJobItems) => {
+  //   setJobItems(newJobItems);
+  // }
+
   const handleEdit = (item) => {
     setIsEditing(true);
     setEditedItem(item);
