@@ -1,11 +1,10 @@
-.nav-container{
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #121212;
   color: rgb(249 250 251);
   padding: 1rem;
-
 }
 
 .button-container {

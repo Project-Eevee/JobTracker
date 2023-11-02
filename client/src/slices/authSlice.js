@@ -27,12 +27,36 @@ export const authenticateUser = createAsyncThunk(
   }
 );
 
+export const signupUser = createAsyncThunk(
+  'auth/signupUser',
+  async (signupData, { rejectWithValue }) => {
+    try {
+      const response = await fetch('http://localhost:3000/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signupData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return rejectWithValue(data.message || 'Signup failed');
+      }
+      console.log('data', data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.toString());
+    }
+  }
+);
+
 export const manualLogin = createAsyncThunk(
   'auth/manualLogin',
   async (credentials, { rejectWithValue }) => {
-    // Replace '/api/login' with your actual login route
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,12 +67,12 @@ export const manualLogin = createAsyncThunk(
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
+        return rejectWithValue(data.message || 'Login failed');
       }
 
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.toString());
     }
   }
 );
@@ -107,6 +131,20 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(manualLogin.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(signupUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(signupUser.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.accessToken;
+        state.isAuthenticated = true;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(signupUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

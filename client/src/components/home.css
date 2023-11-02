@@ -2,7 +2,7 @@ html{
   background-color: #121212;
 }
 
-.content-container{
+.content-container {
   display: flex;
   /* flex-direction: column; */
  background-color: #121212;
@@ -15,18 +15,16 @@ html{
   width: 25%;
   display: flex;
   justify-content: center;
-
 }
 
-.right-container{
-  display:flex;
+.right-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #1f1f1f;
   width: 75%;
   border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .title {
   font-family: 'Nanum Myeongjo', sans-serif;
@@ -34,8 +32,8 @@ html{
 }
 .toolbar{
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   margin-top: 15px;
   padding: 20px;
   width: 80%;
