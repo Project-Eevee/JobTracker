@@ -18,7 +18,7 @@ const Nav = () => {
   return (
     <div className='nav-container'>
       <div>
-        <h1 className='title'>Got Jobs?</h1>
+        <h1 className="title">ByunDL</h1>
       </div>
 
       <div className='button-container'>

@@ -11,8 +11,8 @@ const App = () => {
   return (
     <Provider store={store}>
       <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
+        {/* <Route path='/home' element={<Home />} /> */}
       </Routes>
     </Provider>
   );
