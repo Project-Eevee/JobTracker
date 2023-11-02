@@ -1,7 +1,12 @@
-const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+import { resolve as __resolve } from 'path';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const _resolve = path.resolve;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const _resolve = __resolve;
 
 const mode = 'development';
 const entry = './index.js';
@@ -50,7 +55,7 @@ const resolve = {
   extensions: ['.js', '.jsx', '.json'],
 };
 
-module.exports = {
+export default {
   mode,
   entry,
   output,
