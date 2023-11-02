@@ -10,8 +10,12 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const submitForm = (data) => {
-    console.log(data.email);
+  const onLogin = (data) => {
+    console.log(data);
+  };
+
+  const onSignup = (data) => {
+    console.log(data);
   };
 
   const handleCredentialResponse = async (response) => {
@@ -34,9 +38,14 @@ const Login = () => {
       console.error('Failed to authenticate user');
     }
   };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/');
+  };
   return (
     <>
-      <form onSubmit={handleSubmit(submitForm)}>
+      <form onSubmit={handleSubmit(onLogin)}>
         <div className='login-form'>
           <label htmlFor='email'>Email</label>
           <input type='email' className='form-input' {...register('email')} required />

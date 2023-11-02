@@ -1,5 +1,4 @@
 import db from ('../models/jobTrackerModels')
-import query from ('express');
 const jobController = {};
 
 jobController.getJobs = async (req, res, next) => {
