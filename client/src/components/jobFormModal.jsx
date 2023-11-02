@@ -1,7 +1,7 @@
 import React from 'react';
 import './JobFormModal.css';
 import { useState } from 'react';
-const JobFormModal = ({ isOpen, onClose, onSubmit, onChange }) => {
+const JobFormModal = ({ isOpen, onClose, onSubmit, onChange, updatedJobItems, jobItems }) => {
   const [formData, setFormData] = useState({
     companyName: '',
     nameOfRole: '',
@@ -10,6 +10,8 @@ const JobFormModal = ({ isOpen, onClose, onSubmit, onChange }) => {
     interestLevel: '',
     contactEmail: '',
   });
+
+// const [jobApplications, setJobApplications] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +36,7 @@ const JobFormModal = ({ isOpen, onClose, onSubmit, onChange }) => {
       if (response.ok) {
         // Handle successful submission
         console.log('Data submitted successfully');
+        updatedJobItems([...jobItems, formData]);
         // Clear the form or reset its state if needed
         setFormData({
           companyName: '',
@@ -51,6 +54,19 @@ const JobFormModal = ({ isOpen, onClose, onSubmit, onChange }) => {
       console.error('Network error:', error);
     }
   };
+
+  // const renderJobApplications = () => {
+  //   return jobApplications.map((application, index) => (
+  //     <div key={index}>
+  //       <p>Company Name: {application.companyName}</p>
+  //       <p>Role: {application.nameOfRole}</p>
+  //       <p>Role: {application.dateApplied}</p>
+  //       <p>Role: {application.salary}</p>
+  //       <p>Role: {application.interestLevel}</p>
+  //       <p>Role: {application.contactEmail}</p>
+  //     </div>
+  //   ));
+  // };
 
   return (
     <div className={`modal ${isOpen ? 'open' : ''}`}>
