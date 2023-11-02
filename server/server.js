@@ -22,8 +22,6 @@ const __dirname = dirname(__filename);
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 app.use(express.static(resolve(__dirname, '../client')));
 
-app.use('/api', apiRouter);
-
 app.post('/auth/google/callback', async (req, res) => {
   try {
     const { token } = req.body;
@@ -43,6 +41,8 @@ app.post('/auth/google/callback', async (req, res) => {
     res.status(500).json({ message: 'Error authenticating user', error: error.toString() });
   }
 });
+app.use('/api', apiRouter);
+
 // error handler
 app.use((req, res) => res.status(404).send('This is not the page you are looking for'));
 
