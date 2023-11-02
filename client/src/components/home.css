@@ -1,65 +1,62 @@
-html{
-  background-color: #2D3748;
+html {
+  /* background-color: #2d3748; */
 }
 
-.content-container{
+.content-container {
   display: flex;
   /* flex-direction: column; */
- background-color: #2D3748;
- height: 100vh
+  background-color: #2d3748;
+  height: 100vh;
 }
 
-.left-container{
-  background-color: #2D3748;
+.left-container {
+  background-color: #2d3748;
   /* #2D3748; */
   width: 25%;
   display: flex;
   justify-content: center;
-
 }
 
-.right-container{
-  display:flex;
+.right-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #A0AEC0;
+  background-color: #a0aec0;
   width: 75%;
   border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.toolbar{
+.toolbar {
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   margin-top: 15px;
   padding: 20px;
   width: 80%;
   height: 50px;
-  background-color: #2D3748;
+  background-color: #2d3748;
   color: white;
   text-align: center;
   line-height: 50px;
   border-radius: 8px;
 }
 
-.add-button{
-
-  padding: 8px 16px; 
+.add-button {
+  padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .status-box {
-  background-color: #A0AEC0;
+  background-color: #a0aec0;
   width: 250px;
   height: 200px;
   border-radius: 15px;
   padding: 5%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: black
+  color: black;
 }
 
 .status-box h2 {
@@ -70,7 +67,7 @@ html{
 .status-button {
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #2D3748;
+  background-color: #2d3748;
   color: white;
   border: none;
   border-radius: 4px;
@@ -78,12 +75,12 @@ html{
 }
 
 .status-button:hover {
-  background-color: #1A202C;
+  background-color: #1a202c;
 }
 
 .search-box,
 .stats-box {
-  background-color: #A0AEC0;
+  background-color: #a0aec0;
   width: 250px;
   height: 100px;
   border-radius: 15px;
@@ -115,7 +112,7 @@ html{
 
 .search-button {
   padding: 8px 16px;
-  background-color: #2D3748;
+  background-color: #2d3748;
   color: white;
   border: none;
   border-radius: 4px;
@@ -123,5 +120,5 @@ html{
 }
 
 .search-button:hover {
-  background-color: #1A202C;
+  background-color: #1a202c;
 }

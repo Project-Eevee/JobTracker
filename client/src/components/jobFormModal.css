@@ -21,11 +21,11 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   width: 700px;
   box-sizing: border-box;
-  margin-top: 48px; 
+  margin-top: 48px;
 }
 
 .form-section {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .label {
@@ -34,7 +34,7 @@
 }
 
 .input-box {
-  margin-bottom: 16px; 
+  margin-bottom: 16px;
 }
 
 input[type='text'],
@@ -47,7 +47,7 @@ textarea {
   box-sizing: border-box;
 }
 
-button[type='submit'] {
+/* button[type='submit'] {
   background-color: #4caf50;
   color: white;
   border: none;
@@ -55,15 +55,15 @@ button[type='submit'] {
   font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
-}
+} */
 
-button[type='submit']:hover {
+/* button[type='submit']:hover {
   background-color: #45a049;
-}
+} */
 
 button[type='submit'],
 button {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .close-button {
