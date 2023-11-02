@@ -23,7 +23,7 @@ const JobFormModal = ({ isOpen, onClose, onSubmit, onChange }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/job', {
+      const response = await fetch('/api/job', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
