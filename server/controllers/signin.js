@@ -7,7 +7,9 @@ const handleGoogleLogin = async (req, res) => {
 
     const { sub: googleId, email, name } = googleUser;
 
-    let userQueryResult = await query('SELECT * FROM users WHERE google_id = $1', [googleId]);
+    const _id = googleId;
+
+    let userQueryResult = await query('SELECT * FROM users WHERE _id = $1', [_id]);
 
     if (userQueryResult.rows.length > 0) {
       // User exists, return the user
@@ -15,8 +17,8 @@ const handleGoogleLogin = async (req, res) => {
     } else {
       // User doesn't exist, insert a new record
       userQueryResult = await query(
-        'INSERT INTO users (google_id, email, name) VALUES ($1, $2, $3) RETURNING *',
-        [googleId, email, name]
+        'INSERT INTO users (_id, email, name) VALUES ($1, $2, $3) RETURNING *',
+        [_id, email, name]
       );
       res.status(201).json(userQueryResult.rows[0]);
     }

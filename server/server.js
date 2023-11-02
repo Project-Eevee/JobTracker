@@ -31,9 +31,8 @@ app.post('/auth/google/callback', async (req, res) => {
 
     const payload = ticket.getPayload();
     const userid = payload['sub'];
-    console.log(payload);
+
     if (payload) {
-      // Your logic to store the googleUser information in the database
       const user = await handleGoogleLogin(payload);
       res.json({ message: 'User authenticated successfully', user });
     } else {
